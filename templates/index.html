@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmotionNote - 情绪记录</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EmotionNote</h1>
+            <p>记录每一刻的心情</p>
+        </header>
+
+        <main>
+            <section class="emotion-input">
+                <form id="emotion-form">
+                    <textarea id="event-input" placeholder="写下此刻的心情..." required></textarea>
+                    <div class="button-container">
+                        <button type="submit" class="submit-btn">记一笔</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="greeting-banner">
+                <p id="greeting-text"></p>
+            </section>
+
+            <div class="calendar-and-records">
+                <section class="calendar-view">
+                    <div class="calendar-header">
+                        <h2>情绪日历</h2>
+                    </div>
+                    <div class="calendar-grid" id="calendar-grid">
+                        <!-- 日历网格将通过JavaScript动态生成 -->
+                    </div>
+                </section>
+
+                <section class="emotion-list">
+                    <h2>情绪记录</h2>
+                    <div id="records-container"></div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2025 EmotionNote</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+</body>
+</html>

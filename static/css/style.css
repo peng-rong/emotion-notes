@@ -1,0 +1,195 @@
+/* 全局样式 */
+:root {
+    --primary-color: #007AFF;
+    --background-color: #F2F2F7;
+    --text-color: #1C1C1E;
+    --border-color: #E5E5EA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* 头部样式 */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-color), #5856D6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* 输入区域样式 */
+.emotion-input {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+#emotion-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: vertical;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s;
+}
+
+#emotion-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #0066CC;
+    transform: translateY(-1px);
+}
+
+/* 记录列表样式 */
+.greeting-banner {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1.5rem;
+}
+
+.greeting-banner p {
+    font-family: KaiTi, STKaiti, "楷体", "华文楷体", "Ma Shan Zheng", cursive;
+    font-size: 1.8rem;
+    color: #333;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.emotion-list {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.emotion-list h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.record-item {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+}
+
+.record-item:last-child {
+    border-bottom: none;
+}
+
+.record-date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.record-content {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.empty-message {
+    text-align: center;
+    color: #999;
+    font-size: 0.9rem;
+    padding: 2rem 0;
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .emotion-input,
+    .emotion-list {
+        padding: 1rem;
+    }
+}
+
+/* 日历和记录布局 */
+.calendar-and-records {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.calendar-view {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 响应式布局调整 */
+@media (max-width: 768px) {
+    .calendar-and-records {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}

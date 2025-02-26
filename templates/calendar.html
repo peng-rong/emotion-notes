@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmotionNote - 情绪日历</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EmotionNote</h1>
+            <p>情绪日历</p>
+            <nav class="main-nav">
+                <a href="/" class="nav-link">记录</a>
+                <a href="/calendar" class="nav-link active">日历</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="calendar-view">
+                <div class="calendar-header">
+                    <h2>近12周情绪记录</h2>
+                </div>
+                <div class="calendar-grid" id="calendar-grid">
+                    <!-- 日历网格将通过JavaScript动态生成 -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 EmotionNote</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+</body>
+</html>
