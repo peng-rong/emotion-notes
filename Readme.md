@@ -8,11 +8,13 @@
 - 支持快速添加新记录
 - 按时间顺序展示情绪记录
 - 显示记录日期和事件内容
-- 晚间问候功能
+- 晚间/早晨问候功能
+- 情绪颜色可视化
+- 日历视图展示
 
 ## 技术栈
 
-- 后端：Python Flask
+- 后端：Python Flask，集成日志记录系统
 - 前端：原生HTML/CSS，采用苹果设计风格
 - 数据源：飞书多维表格
 - 依赖管理：Poetry
@@ -25,10 +27,13 @@
 
 2. 创建多维表格
    - 创建情绪记录表格，包含以下字段：
-     * 日期
-     * 事件
+     * 日期（时间戳格式）
+     * 事件（文本格式）
    - 创建晚间问候表格，包含以下字段：
-     * 晚间问候.输出结果
+     * 提醒日（时间戳格式）
+     * 晚间问候.文本化结果（文本格式）
+     * 早晨问候.文本化结果（文本格式）
+     * 情绪颜色（枚举：快乐、平静、疲倦、焦虑、低落、愤怒）
 
 ## 快速开始
 
@@ -53,7 +58,7 @@ EmotionNote/
 curl -sSL https://install.python-poetry.org | python3 -
 
 # 安装项目依赖
-poetry install
+poetry install --no-root
 ```
 
 3. 创建poetry.toml文件：
@@ -62,18 +67,31 @@ poetry install
 in-project = true
 ```
 
-4. 配置飞书应用信息
-在 `config.py` 中填入您的飞书应用信息：
-```python
-class Config:
-    # 飞书应用配置
-    FEISHU_APP_ID="***"
-    FEISHU_APP_SECRET="***"
-    
-    # 多维表格配置
-    BASE_ID="***"
-    TABLE_ID="***"
+4. 配置环境变量
+在项目根目录创建 `.env` 文件，填入以下配置信息：
+```ini
+# 飞书应用配置
+FEISHU_APP_ID=你的飞书应用ID
+FEISHU_APP_SECRET=你的飞书应用密钥
+
+# 多维表格配置
+BASE_ID=wiki                # 如果使用知识库，保持此值为wiki
+WIKI_BASE=你的知识库Token    # 如果使用知识库，填入知识库Token
+TABLE_ID=你的表格ID         # 情绪记录表格ID
+# 问候表格配置
+GREETING_TABLE_ID=你的问候表格ID  # 问候表格ID
+
+# Flask配置(可选）)
+SECRET_KEY=你的密钥         # Flask应用密钥
+FLASK_ENV=development      # 开发环境设置为development，生产环境设置为production
+
+
 ```
+
+注意：
+- 请将上述配置中的占位符替换为实际的值
+- 确保 `.env` 文件已添加到 `.gitignore` 中，避免敏感信息泄露
+- 首次运行前必须完成所有配置项的设置
 
 5. 运行应用：
 ```bash
